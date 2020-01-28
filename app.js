@@ -1,4 +1,5 @@
 const express = require("express");
+const router = express.Router();
 
 const bodyParser = require('body-parser')
 
@@ -31,6 +32,8 @@ app.post('/dima', urlencodedParser, function(request, response) {
   console.log(request.body)
   response.send(`${request.body.userName} - ${request.body.userAge}`)
 });
+
+app.use("/dima", router);
 
 app.listen(port, host, () => {
     console.log(`Server ${host} on port ${port}`);
